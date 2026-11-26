@@ -1,5 +1,5 @@
 
-import { Product } from "@/Types/ProductsType/Products.type";
+import { ProductType } from "@/Types/ProductsType/Products.type";
 import { ReactNode } from "react";
 import {
   FaStar,
@@ -7,7 +7,7 @@ import {
   FaStarHalfAlt,
 } from "react-icons/fa";
 
-export function getStarIcons(productData: Product) {
+export function getStarIcons(productData: ProductType) {
 const stars: ReactNode[] = [];
   const fullStars = Math.floor(productData.ratingsAverage);
   const hasHalfStar = productData.ratingsAverage % 1 >= 0.5;

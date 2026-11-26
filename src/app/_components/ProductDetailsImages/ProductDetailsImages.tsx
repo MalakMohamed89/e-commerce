@@ -1,11 +1,11 @@
 "use client";
 import { useRef, useState } from 'react';
 import Swiper from '../Swiper/Swiper'
-import { Product } from '@/Types/ProductsType/Products.type';
+import { ProductType } from '@/Types/ProductsType/Products.type';
 import type { Swiper as SwiperInstance } from "swiper";
 import Image from "next/image";
 
-export default function ProductDetailsImages({productData}:{productData:Product}) {
+export default function ProductDetailsImages({productData}:{productData:ProductType}) {
 const [imageCover,setImageCover]=useState(productData.imageCover)
 
 
