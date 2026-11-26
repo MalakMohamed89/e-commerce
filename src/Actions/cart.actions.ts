@@ -20,7 +20,7 @@ export async function addProductToCart(productID: string) {
 
     return await res.json();
   } catch (err) {
-    return err;
+ return { status: "error", message: "Something went wrong!" };
   }
 }
 
