@@ -6,5 +6,6 @@ export async function getMyToken(){
 const myToken=cookie.get("__Secure-next-auth.session-token")?.value ?? cookie.get("next-auth.session-token")?.value
  const decodedToken=await decode({token:myToken,secret:process.env.NEXTAUTH_SECRET!})
  const token= decodedToken?.routeToken
+ console.log("COOKIE NAMES:", cookie.getAll().map((c) => c.name), "HAS COOKIE:", !!myToken, "HAS ROUTE TOKEN:", !!token)
 return token
 }

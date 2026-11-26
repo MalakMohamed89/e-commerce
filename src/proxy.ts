@@ -35,4 +35,4 @@ return NextResponse.next()
 
 }
 
-export const config = { matcher: ["/wishlist/:path*","/profile/:path*","/signIn","/signUp"] }
+export const config = { matcher: ["/cart/:path*","/wishlist/:path*","/profile/:path*","/signIn","/signUp"] }
