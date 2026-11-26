@@ -17,7 +17,6 @@ console.log(
 const myToken=await getToken({
     req:request,
     secret:process.env.NEXTAUTH_SECRET,
-    secureCookie:process.env.NODE_ENV==="production"
 })
 const token=myToken?.routeToken
 
