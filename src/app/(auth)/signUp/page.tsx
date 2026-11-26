@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { ShieldCheck, Star, Truck, UserRoundPlus } from "lucide-react";
+import { ShieldCheck, Star, Truck, UserRoundPlus,Loader2 } from "lucide-react";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import InputField from "@/app/_components/InputField/InputField";
@@ -50,7 +50,7 @@ const form=useForm<registerSchemaType>({
 mode: "onChange",
 })
 
-const {handleSubmit,watch}=form
+const {handleSubmit,watch,formState: { isSubmitting }}=form
    
 async function  handleRegister(values:registerSchemaType){
      if (!isAgreed){
@@ -227,10 +227,24 @@ const showStrength = password.length > 0 || isSubmitted;
     You must agree to the Terms of Service and Privacy Policy.
   </p>
 )}
-            <button type="submit" className="flex cursor-pointer h-10 w-full items-center justify-center gap-2 rounded-md bg-[#16a34a] text-sm font-semibold text-white hover:bg-green-700 transition-all duration-300">
-              <UserRoundPlus aria-hidden="true" className="size-4" />
-              <span>Create My Account</span>
-            </button>
+    <button
+  type="submit"
+  disabled={isSubmitting}
+  aria-busy={isSubmitting}
+  className="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-[#16a34a] text-sm font-semibold text-white transition-all duration-300 hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-70"
+>
+  {isSubmitting ? (
+    <>
+      <Loader2 aria-hidden="true" className="size-4 animate-spin" />
+      <span>Creating account...</span>
+    </>
+  ) : (
+    <>
+      <UserRoundPlus aria-hidden="true" className="size-4" />
+      <span>Create My Account</span>
+    </>
+  )}
+</button>
           </form>
 
           <p className="mt-2 border-t border-gray-100 pt-10 text-center text-sm leading-6 text-[#364153]">

@@ -11,6 +11,7 @@ import {
   Star,
   Truck,
   UsersRound,
+    Loader2,
 } from "lucide-react";
 import { FaFacebookF } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
@@ -46,7 +47,7 @@ const form=useForm<loginSchemaType>({
 mode: "onChange",
 })
 
-const {handleSubmit}=form
+const {handleSubmit,formState: { isSubmitting }}=form
    
 async function  handleLogin(values:loginSchemaType){
 
@@ -170,9 +171,20 @@ else{
               Keep me signed in
             </label>
 
-            <button type="submit" className="h-13 w-full cursor-pointer rounded-lg bg-[#16a34a] text-sm font-semibold text-white shadow-sm transition-colors hover:bg-green-700">
-              Sign In
-            </button>
+<button
+  type="submit"
+  disabled={isSubmitting}
+  className="flex h-13 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#16a34a] text-sm font-semibold text-white shadow-sm transition-colors hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-70"
+>
+  {isSubmitting ? (
+    <>
+      <Loader2 aria-hidden="true" className="size-4 animate-spin" />
+      Signing in...
+    </>
+  ) : (
+    "Sign In"
+  )}
+</button>
           </form>
 
           <div className="mt-8 border-t border-[#f3f4f6] pt-6 text-center text-sm leading-6 text-[#4a5565]">
