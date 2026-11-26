@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server"
 
 export async function proxy(request:NextRequest){
 
-const protectedRoutes=["/cart","/wishlist","/profile"]
+const protectedRoutes=["/cart","/wishlist","/account"]
 const authRoutes=["/signIn","/signUp"]
 
 // 1-gat path name
