@@ -7,13 +7,11 @@ import type { InputHTMLAttributes } from "react";
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
-  helper?: string;
   error?: string;
 };
 
 export default function PasswordFieldAccount({
   label,
-  helper,
   error,
   ...props
 }: Props) {
@@ -44,11 +42,7 @@ export default function PasswordFieldAccount({
         </button>
       </span>
 
-      {helper && (
-        <span className="-mt-1 text-[10px] font-normal text-[#6a7282]">
-          {helper}
-        </span>
-      )}
+
 
       {error && (
         <span className="text-[11px] font-normal text-red-500">

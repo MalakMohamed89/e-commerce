@@ -241,7 +241,6 @@ console.log("updatePass",response)
             {...registerPassword("password")}
             label="New Password"
             placeholder="Enter your new password"
-            helper="Must be at least 8 characters, with uppercase, lowercase, number and special character"
             error={passwordErrors.password?.message}
           />
 
